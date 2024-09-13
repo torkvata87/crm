@@ -1,0 +1,238 @@
+@media (max-width: 992px) {
+  .table__th {
+    padding: 14px 5px 9px 4px;
+  }
+
+  .th-padding-id {
+    padding-left: 21px;
+    width: 9%;
+  }
+
+  .th-padding-fullname {
+    padding-left: 22px;
+    width: 30%;
+  }
+
+  .arrow-left::after {
+    left: 85%;
+  }
+
+  .th-padding-datetime-create,
+  .th-padding-datetime-updated {
+    width: 13.5%;
+    padding: 12px 11px 12px 16px;
+  }
+
+  .th-text {
+    padding: 0;
+  }
+
+  .th-padding-contacts {
+    padding-left: 13px;
+    width: 18%;
+  }
+
+  .th-padding-actions {
+    padding-left: 11px;
+  }
+
+  .table__td {
+    padding: 10px 6px 8px 14px;
+  }
+
+  .td-id {
+    padding-left: 19px;
+  }
+
+  .td-fullname {
+    padding-left: 14px;
+  }
+
+  .td-datetime-create,
+  .td-datetime-update {
+    padding: 0 0 0 13px;
+  }
+
+  .span-time {
+    padding: 0;
+  }
+
+  .td-actions {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .btn-action {
+    padding-left: 15px;
+  }
+
+  .svg-change,
+  .svg-delete {
+    top: 1px;
+    left: 2px;
+  }
+
+  .td-spinner::after {
+    left: 47.4%;
+  }
+
+  .btn-add {
+    padding: 12px 22px 11px;
+  }
+
+  .btn-content {
+    padding: 12px 33px 12px 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--grey);
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background-color: var(--grey);
+  }
+
+  .table {
+    min-width: 767px;
+  }
+
+  .section {
+    padding-top: 33px;
+  }
+
+  .main-title {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+
+  .th-padding-fullname {
+    padding-left: 20px;
+  }
+
+  .td-fullname {
+    padding-left: 13px;
+  }
+
+  .th-padding-datetime-create,
+  .th-padding-datetime-updated {
+    padding: 10px 11px 10px 16px;
+    width: 13.5%;
+  }
+
+  .td-spinner::after {
+    content: "";
+    position: sticky;
+    left: 47%;
+    top: 51%;
+  }
+
+  .modal {
+    padding: 26px 0 28px;
+  }
+
+  .form__block-add-contact-padding {
+    padding: 24px 30px 25px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 8px 0 4px;
+  }
+
+  .header__container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .input-request {
+    display: none;
+  }
+
+  .container {
+    padding: 0 9px;
+  }
+
+  .td-spinner::after {
+    left: 43%;
+  }
+
+  .modal {
+    width: calc(100% - 18px);
+  }
+
+  .modal__btn-close {
+    right: 4px;
+    top: 4px;
+  }
+
+  .modal__block {
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 0px 17px;
+  }
+
+  .form__block {
+    margin-bottom: 28px;
+    padding: 0 13px;
+  }
+
+  .form__block-add-contact {
+    margin-bottom: 29px;
+  }
+
+  .form__block-add-contact-padding {
+    padding: 24px 17px 26px 16px;
+  }
+
+  .form__block-add-contact-padding {
+    padding: 24px 17px 25px 16px;
+  }
+
+  .form__block-add-contact {
+    margin-bottom: 27px;
+  }
+
+  .form__block-contacts-margin {
+    margin-bottom: 26px;
+  }
+
+  .dropdown__button {
+    padding: 7px 11px 5px;
+    width: 110px;
+    font-size: 13px;
+  }
+
+  .dropdown__button::after {
+    left: 83%;
+  }
+
+  .dropdown__list {
+    width: 110px;
+  }
+
+  .form__input-contact {
+    padding: 6px 12px 5px 5px;
+  }
+
+  .form__block {
+    padding: 1px 15px;
+    margin-bottom: 24px;
+  }
+
+  .modal__block-margin {
+    margin-bottom: 30px;
+  }
+}

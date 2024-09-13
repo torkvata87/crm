@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Денис",
+    "surname": "Скворцов",
+    "lastName": "Юрьевич",
+    "contacts": [
+      { "type": "Телефон", "value": "899034567121" },
+      { "type": "Email", "value": "gfgdfgdg@hghf.ru" }
+    ],
+    "id": "1713351025560",
+    "updatedAt": "2024-04-19T05:58:05.239Z",
+    "createdAt": "2024-04-17T10:50:25.560Z"
+  },
+  {
+    "name": "Арсений",
+    "surname": "Куприянов",
+    "lastName": "Валерьевич",
+    "contacts": [
+      { "type": "Телефон", "value": "899034567121" },
+      { "type": "Email", "value": "gfgdfgdg@hghf.ru" }
+    ],
+    "id": "1713351025560",
+    "updatedAt": "2024-04-19T05:58:05.239Z",
+    "createdAt": "2024-04-17T10:50:25.560Z"
+  },
+  {
+    "name": "Людмила",
+    "surname": "Константинопольская",
+    "lastName": "Александровна",
+    "contacts": [
+      {
+        "type": "Facebook",
+        "value": "https://facebook.com/ludmila-konstantinopol"
+      },
+      { "type": "Телефон", "value": "+75634897812" },
+      { "type": "Email", "value": "lud_1987@ya.ru" }
+    ],
+    "id": "1713351208868",
+    "updatedAt": "2024-04-17T10:53:28.868Z",
+    "createdAt": "2024-04-17T10:53:28.868Z"
+  },
+  {
+    "name": "Олег",
+    "surname": "Дмитриевский",
+    "lastName": "Алексеевич",
+    "contacts": [{ "type": "Телефон", "value": "+74354567890" }],
+    "id": "1713351284484",
+    "updatedAt": "2024-04-17T10:54:44.484Z",
+    "createdAt": "2024-04-17T10:54:44.484Z"
+  },
+  {
+    "name": "Татьяна",
+    "surname": "Павловна",
+    "lastName": "Александровна",
+    "contacts": [
+      { "type": "Vk", "value": "https://vk.com/tp_aleksandrova" },
+      { "type": "Телефон", "value": "+7927568866" },
+      { "type": "Email", "value": "tp.aleksandrova@yandex.ru" }
+    ],
+    "id": "1713351378004",
+    "updatedAt": "2024-04-17T10:56:18.004Z",
+    "createdAt": "2024-04-17T10:56:18.004Z"
+  }
+]
