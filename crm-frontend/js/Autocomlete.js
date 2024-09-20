@@ -11,7 +11,6 @@ export class Autocomplete {
    */
   show(clients, value, callbackSelect) {
     this.autocompleteList.innerHTML = "";
-    // showElement(this.autocompleteList, "-visible");
     this.actionAutocompleteList(true);
     clients.forEach((client) => {
       const listItem = document.createElement("li");

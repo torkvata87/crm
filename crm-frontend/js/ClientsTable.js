@@ -25,7 +25,6 @@ export class ClientsTable {
     this.currentFocus = -1;
 
     this.addSortEventListeners();
-    // this.initHashChangeListener();
   }
 
   /**
@@ -84,7 +83,6 @@ export class ClientsTable {
     // Задержка для плавного заполнения таблицы
     setTimeout(() => {
       tbody.innerHTML = "";
-      // this.clients = [...clientsArr];
       this.clients = clientsArr;
       this.clients.forEach((clientData) => {
         const newRow = this.createTableRow(clientData);
@@ -162,8 +160,6 @@ export class ClientsTable {
 
         // Сброс всех стрелок и спанов к неактивному состоянию
         this.table.querySelectorAll(".arrow").forEach((arrow) => {
-          // arrow.classList.toggle("arrow-inactive");
-          // arrow.classList.toggle("arrow-active");
           selectorToggle(arrow, arrow, "arrow-inactive", "arrow-active");
         });
         this.table.querySelectorAll(".span-color").forEach((span) => {
@@ -171,8 +167,6 @@ export class ClientsTable {
         });
 
         // Активируем текущую стрелку и спан
-        // arrow.classList.toggle("arrow-inactive");
-        // arrow.classList.toggle("arrow-active");
         selectorToggle(arrow, arrow, "arrow-inactive", "arrow-active");
         if (span) span.classList.remove("span-inactive");
 
@@ -216,7 +210,6 @@ export class ClientsTable {
 
       const value = event.currentTarget.value.trim().toLowerCase();
       if (!value) {
-        // autocompleteList.hide();
         autocompleteList.actionAutocompleteList(false);
         return;
       }
@@ -242,7 +235,6 @@ export class ClientsTable {
               this.selectClient.bind(this)
             );
           } else {
-            // autocompleteList.hide();
             autocompleteList.actionAutocompleteList(false);
           }
         } catch (error) {
@@ -264,10 +256,7 @@ export class ClientsTable {
     // Скрытие спиннера и автозаполнения при потере фокуса с задержкой
     inputSearch.addEventListener("blur", () => {
       hideElement(spinner, "-visible");
-      // spinner.classList.add("hidden");
-      // spinner.classList.remove("opacity-visible");
       setTimeout(() => {
-        // autocompleteList.hide();
         autocompleteList.actionAutocompleteList(false);
       }, 300);
     });
@@ -282,7 +271,6 @@ export class ClientsTable {
     clientRow.scrollIntoView({ behavior: "smooth" });
 
     const autocompleteList = new Autocomplete("autocomplete-list");
-    // autocompleteList.hide();
     autocompleteList.actionAutocompleteList(false);
 
     const inputSearch = document.getElementById("inp-req");
@@ -295,13 +283,6 @@ export class ClientsTable {
     }, 3000);
   }
 
-  // плавное появление или скрытие спиннера на кнопке "Изменить"
-  // spinnerBtnChangeToggle(svgChange, svgSpinner) {
-  //   svgChange.classList.toggle("opacity");
-  //   // event.currentTarget.children[1].classList.toggle("hidden");
-  //   svgSpinner.classList.toggle("opacity");
-  // }
-
   /**
    * Обрабатывает нажатие на кнопку изменения клиента с отображением модального окна для изменения данных клиента.
    */
@@ -309,7 +290,6 @@ export class ClientsTable {
     const clientId = event.currentTarget.getAttribute("data-id");
     const svgChange = event.currentTarget.firstChild;
     const svgSpinner = event.currentTarget.children[1];
-    // this.spinnerBtnChangeToggle(svgChange, svgSpinner);
     selectorToggle(svgChange, svgSpinner, "opacity", "opacity");
 
     try {
@@ -349,7 +329,6 @@ export class ClientsTable {
       console.error("Ошибка при обновлении данных клиента:", error);
     } finally {
       setTimeout(async () => {
-        // this.spinnerBtnChangeToggle(svgChange, svgSpinner);
         selectorToggle(svgChange, svgSpinner, "opacity", "opacity");
       }, 1000);
     }

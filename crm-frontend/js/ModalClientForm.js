@@ -176,8 +176,7 @@ export class ModalClientForm extends Modal {
     );
     // При достижении числа контактов в модальном окне более 3 появляется вертикальный скролл
     if (inputContainer.length > 2 || contacts.length > 3) {
-      formBlockAddContacts.classList.add("form_block-contacts-scroll");
-      formBlockAddContacts.scrollTop = formBlockAddContacts.scrollHeight;
+      this.modal.classList.add("modal-scroll");
     }
 
     // При достижении 10 контактов в модальном окне кнопка "Добавить контакт" скрывается
@@ -196,9 +195,6 @@ export class ModalClientForm extends Modal {
       const contact = new Contact(null, null);
       contact.createContactInput(contacts);
     }
-    // setTimeout(() => {
-    //   formBlockAddContacts.classList.add("show");
-    // }, 10);
   }
 
   /**
@@ -208,7 +204,6 @@ export class ModalClientForm extends Modal {
     input.addEventListener("input", (event) => {
       let value = event.target.value.trim().toLowerCase();
       value = value.replace(/[^а-яё -]/g, ""); // Удаляем все символы, кроме допустимых
-      // value = value.replace(/[^\d]/g, ""); // Удаляем все символы, кроме допустимых
       value = value.replace(/^[-\s]+|[-\s]+$/g, ""); // Удаляем лишние пробелы и дефисы в начале и конце
       value = value.replace(/[-\s]+/g, "-"); // Заменяем несколько идущих подряд пробелов или дефисов на один
       value = value.charAt(0).toUpperCase() + value.slice(1); // Приводим первую букву к верхнему регистру

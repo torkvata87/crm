@@ -100,33 +100,11 @@ export class Modal {
    */
   trapFocus() {
     const focusableElements = this.modal.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      '.modal__btn-close, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
     const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement =
-      focusableElements[focusableElements.length - 1];
-
     // Фокусируем на первом фокусируемом элементе
     firstFocusableElement.focus();
-
-    // Ловим нажатие клавиш
-    this.modal.addEventListener("keydown", (e) => {
-      if (e.key === "Tab") {
-        if (e.shiftKey) {
-          // Если нажата комбинация Shift + Tab
-          if (document.activeElement === firstFocusableElement) {
-            e.preventDefault();
-            lastFocusableElement.focus();
-          }
-        } else {
-          // Если просто нажата Tab
-          if (document.activeElement === lastFocusableElement) {
-            e.preventDefault();
-            firstFocusableElement.focus();
-          }
-        }
-      }
-    });
   }
 
   /**
@@ -134,17 +112,14 @@ export class Modal {
    * В случае ошиби взаимодействия с сервером создание блока с сообщением пользователю об ошибке
    */
   async handlerAction(clientId) {
-    // const errors = [];
     const inputs = this.modal.querySelectorAll("input");
     try {
       this.formLoading();
-      // setTimeout(async () => {
 
       inputs.forEach((input) => (input.disabled = true));
       await this.actionClient(clientId);
 
       this.hideModal();
-      // }, 400);
     } catch (error) {
       if (error.name === "TypeError" && error.message === "Failed to fetch") {
         error.message = "Ошибка сети: не удалось связаться с сервером.";
@@ -155,7 +130,6 @@ export class Modal {
       this.showErrorMessage([{ message: error.message }]);
     } finally {
       setTimeout(() => {
-        // this.hideLoading();
         inputs.forEach((input) => (input.disabled = false));
       }, 600);
     }

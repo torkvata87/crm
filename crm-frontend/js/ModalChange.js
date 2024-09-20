@@ -44,21 +44,14 @@ export class ModalChange extends ModalClientForm {
    */
   async handlerUnderlined(clientData) {
     try {
-      // this.showLoading();
-
       // Попытка добавления клиента
       await this.underlinedClient(clientData.id);
-
-      // this.hideModal();
     } catch (error) {
       if (error.name === "TypeError" && error.message === "Failed to fetch") {
         error.message = "Ошибка сети: не удалось связаться с сервером.";
       }
       console.log([{ message: error.message }]);
       this.showErrorMessage([{ message: error.message }]);
-    } 
-    // finally {
-    //   this.hideLoading();
-    // }
+    }
   }
 }

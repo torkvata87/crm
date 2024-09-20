@@ -87,7 +87,7 @@ export const validateContact = (type, value) => {
     "tel-add": /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
     email: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i,
     url: /^(https?:\/\/)?([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})(\/[a-zA-Z0-9.-]*)*\/?$/i,
-    other: /^[\w\s.@:-]+$/,
+    other: /^[\w\s.@:-а-яА-ЯёЁ]+$/i,
   };
   return validationRules[type] ? validationRules[type].test(value) : true;
 };
@@ -134,15 +134,90 @@ export const getContactType = (type) => {
   return contactType[type.toLowerCase()];
 };
 
-export const applyMask = (input) => {
-  const masks = {
-    tel: { mask: "+7 (999) 999-99-99" },
-    "tel-add": { mask: "+7 (999) 999-99-99" },
-    email: { alias: "email" },
-    url: { alias: "url" },
-    other: { mask: "" },
-  };
+/**
+ * Возвращает префикс для телефонного номера в зависимости от первой цифры.
+ */
+const prefixNumber = (str) => {
+  if (str === "7") {
+    return "7 (";
+  }
+  if (str === "8") {
+    return "8 (";
+  }
+  if (str === "9") {
+    return "7 (9";
+  }
+  return "7 (";
+};
 
-  const maskOptions = masks[input.dataset.val] || { mask: "" };
-  Inputmask(maskOptions).mask(input);
+/**
+ * Применяет маску для телефонного номера в формате "+7 (XXX) XXX-XX-XX".
+ */
+export const inputMaskNumberPhone = (input) => {
+  const value = input.value.replace(/\D+/g, "");
+  const numberLength = 11;
+
+  let result;
+  if (input.value.includes("+8") || input.value[0] === "8") {
+    result = "";
+  } else {
+    result = "+";
+  }
+
+  for (let i = 0; i < value.length && i < numberLength; i++) {
+    switch (i) {
+      case 0:
+        result += prefixNumber(value[i]);
+        continue;
+      case 4:
+        result += ") ";
+        break;
+      case 7:
+        result += "-";
+        break;
+      case 9:
+        result += "-";
+        break;
+      default:
+        break;
+    }
+    result += value[i];
+  }
+  input.value = result;
+};
+
+/**
+ * Применяет маску для URL-адреса. Автоматически добавляет "http://" или "https://", если они отсутствуют.
+ */
+export const inputMaskUrl = (input) => {
+  let value = input.value;
+  value = value.replace(/[^/:a-z0-9._-]/gi, "").replace(/\s+/g, "");
+  if (
+    value.length === 0 ||
+    (!value.startsWith("http://") && !value.startsWith("https://"))
+  ) {
+    value = "http://";
+  }
+  input.value = value;
+};
+
+/**
+ * Применяет маску для Email-адреса, убирая лишние символы и предотвращая множественные "@", точки в начале и двойные точки в домене.
+ */
+export const inputMaskEmail = (input) => {
+  let value = input.value;
+  value = value.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+  const atIndex = value.indexOf("@");
+  if (atIndex !== -1) {
+    value =
+      value.slice(0, atIndex + 1) + value.slice(atIndex + 1).replace(/@/g, "");
+
+    let domainPart = value.slice(atIndex + 1).replace(/^\.+/, "");
+    domainPart = domainPart.replace(/\.{2,}/g, ".");
+    value = value.slice(0, atIndex + 1) + domainPart;
+  }
+
+  value = value.replace(/\s+/g, "");
+  input.value = value;
 };
