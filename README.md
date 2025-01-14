@@ -27,6 +27,36 @@ node index
 
 4. После запуска сервер API будет доступен по адресу `http://localhost:3000`.
 
+## Реализация упрощенной CRM-системы
+
+Все методы API (GET, POST, PATCH и DELETE) локального сервера ожидают тело запроса в формате JSON и возвращают ответы также в формате JSON.
+
+Объект клиента имеет следующую структуру:
+```javascript
+{
+  id: '1234567890',
+  createdAt: '2021-02-03T13:07:29.554Z',
+  updatedAt: '2021-02-03T13:07:29.554Z',
+  name: 'Василий',
+  surname: 'Пупкин',
+  lastName: 'Васильевич',
+  contacts: [
+    {
+      type: 'Телефон',
+      value: '+71234567890'
+    },
+    {
+      type: 'Email',
+      value: 'abc@xyz.com'
+    },
+    {
+      type: 'Facebook',
+      value: 'https://facebook.com/vasiliy-pupkin-the-best'
+    }
+  ]
+}
+```
+
 ## Технологии и инструменты
 
 - **JavaScript** - язык программирования.
